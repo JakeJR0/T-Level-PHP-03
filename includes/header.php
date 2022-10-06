@@ -1,3 +1,4 @@
+<?php include 'site_info.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
