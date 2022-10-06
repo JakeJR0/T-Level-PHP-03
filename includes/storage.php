@@ -5,11 +5,15 @@ define("DB_USER", "root");
 define("DB_PASS", "");
 define("DB_NAME", "T-Level-Lab-03");
 
+# Creates the connection to the database
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+# Checks if the connection is successful
 if (!$connection) {
     echo "Connection failed";
 }
+
+# Ensures that the required tables exist
 
 $table = "
     CREATE TABLE IF NOT EXISTS courses(
@@ -43,10 +47,13 @@ $table = "
     );
 ";
 
+# Executes the query
 $create_table = mysqli_multi_query($connection, $table);
 
+# Checks if the query was successful
 if (!$create_table) {
     echo "Table creation failed";
 }
 
+# Closes the connection
 $connection -> close();
