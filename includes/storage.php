@@ -23,6 +23,24 @@ $table = "
         course_level VARCHAR(255) NOT NULL,
         FOREIGN KEY (course_id) REFERENCES courses(ID)
     );
+
+    CREATE TABLE IF NOT EXISTS students(
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        first_name VARCHAR(255) NOT NULL,
+        last_name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        course_id INT NOT NULL,
+        course_level INT NOT NULL,
+        FOREIGN KEY (course_id) REFERENCES courses(ID),
+        FOREIGN KEY (course_level) REFERENCES course_levels(ID)
+    );
+
+    CREATE TABLE feedback(
+        ID INT PRIMARY KEY AUTO_INCREMENT,
+        student_id INT NOT NULL,
+        feedback VARCHAR(255) NOT NULL,
+        FOREIGN KEY (student_id) REFERENCES students(ID)
+    );
 ";
 
 $create_table = mysqli_multi_query($connection, $table);
