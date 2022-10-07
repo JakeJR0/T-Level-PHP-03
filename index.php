@@ -181,8 +181,8 @@ function DisplayCourseForm($courses) {
                 <div class="form-group">
                     <!-- Form Feedback Label -->
                     <label for="feedback">Form Feedback</label>
-                    <!-- Form Feedback Inpu -->
-                    <input pattern="[A-z]{30,255}" class="form-control" type="text" name="feedback" id="feedback" value="<?php echo $_SESSION['feedback'] ?? ''; ?>">
+                    <!-- Form Feedback Input -->
+                    <input class="form-control" type="text" maxlength="255" minlength="30" name="feedback" id="feedback" value="<?php echo $_SESSION['feedback'] ?? ''; ?>">
                 </div>
                 <!-- Timestamp (Hidden) -->
                 <input id="form-time" style="display: none;" type="text" name="timestamp" value="1">
